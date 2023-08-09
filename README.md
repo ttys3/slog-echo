@@ -10,7 +10,7 @@
 [![Contributors](https://img.shields.io/github/contributors/samber/slog-echo)](https://github.com/samber/slog-echo/graphs/contributors)
 [![License](https://img.shields.io/github/license/samber/slog-echo)](./LICENSE)
 
-[Echo](https://github.com/labstack/echo) middleware to log http requests using [slog](https://pkg.go.dev/golang.org/x/exp/slog).
+[Echo](https://github.com/labstack/echo) middleware to log http requests using [slog](https://pkg.go.dev/log/slog).
 
 **See also:**
 
@@ -60,7 +60,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	slogecho "github.com/samber/slog-echo"
-	"golang.org/x/exp/slog"
+	"log/slog"
 )
 
 // Create a slog logger, which:
@@ -97,7 +97,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	slogecho "github.com/samber/slog-echo"
 	slogformatter "github.com/samber/slog-formatter"
-	"golang.org/x/exp/slog"
+	"log/slog"
 )
 
 // Create a slog logger, which:
@@ -141,7 +141,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	slogecho "github.com/samber/slog-echo"
-	"golang.org/x/exp/slog"
+	"log/slog"
 )
 
 // Create a slog logger, which:
@@ -177,7 +177,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	slogecho "github.com/samber/slog-echo"
-	"golang.org/x/exp/slog"
+	"log/slog"
 )
 
 // Create a slog logger, which:
@@ -209,7 +209,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	slogecho "github.com/samber/slog-echo"
-	"golang.org/x/exp/slog"
+	"log/slog"
 )
 
 // Create a slog logger, which:
@@ -245,7 +245,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	slogecho "github.com/samber/slog-echo"
-	"golang.org/x/exp/slog"
+	"log/slog"
 )
 
 // Create a slog logger, which:

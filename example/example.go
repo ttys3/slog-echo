@@ -9,7 +9,7 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 	slogecho "github.com/samber/slog-echo"
 	slogformatter "github.com/samber/slog-formatter"
-	"golang.org/x/exp/slog"
+	"log/slog"
 )
 
 func main() {

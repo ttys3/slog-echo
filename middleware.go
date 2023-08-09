@@ -8,7 +8,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
-	"golang.org/x/exp/slog"
+	"log/slog"
 )
 
 const requestIDCtx = "slog-echo.request-id"
