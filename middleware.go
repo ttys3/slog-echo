@@ -6,12 +6,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/google/uuid"
-	"github.com/labstack/echo/v4"
 	"log/slog"
-)
 
-const requestIDCtx = "slog-echo.request-id"
+	"github.com/labstack/echo/v4"
+)
 
 type Config struct {
 	DefaultLevel     slog.Level
@@ -55,15 +53,6 @@ func NewWithConfig(logger *slog.Logger, config Config) echo.MiddlewareFunc {
 				c.Error(err)
 			}
 
-			requestID := req.Header.Get(echo.HeaderXRequestID)
-			if requestID == "" {
-				requestID = res.Header().Get(echo.HeaderXRequestID)
-			}
-			if requestID == "" {
-				requestID = uuid.New().String()
-				res.Header().Set(echo.HeaderXRequestID, requestID)
-			}
-
 			status := res.Status
 			method := req.Method
 			end := time.Now()
@@ -90,7 +79,13 @@ func NewWithConfig(logger *slog.Logger, config Config) echo.MiddlewareFunc {
 			}
 
 			if config.WithRequestID {
-				attributes = append(attributes, slog.String("request-id", requestID))
+				requestID := req.Header.Get(echo.HeaderXRequestID)
+				if requestID == "" {
+					requestID = res.Header().Get(echo.HeaderXRequestID)
+				}
+				if requestID != "" {
+					attributes = append(attributes, slog.String("request-id", requestID))
+				}
 			}
 
 			switch {
@@ -115,13 +110,4 @@ func NewWithConfig(logger *slog.Logger, config Config) echo.MiddlewareFunc {
 			return
 		}
 	}
-}
-
-// GetRequestID returns the request identifier
-func GetRequestID(c echo.Context) string {
-	if id, ok := c.Get(requestIDCtx).(string); ok {
-		return id
-	}
-
-	return ""
 }
